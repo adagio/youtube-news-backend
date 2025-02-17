@@ -70,3 +70,18 @@ class YouTubeClient:
                 return self.get_latest_videos(channel_id, max_results)
             else:
                 raise e
+            
+    def get_video_details(self, video_id: str):
+        self._rate_limit()
+        try:
+            response = self.youtube.videos().list(
+                part="snippet",
+                id=video_id
+            ).execute()
+            return response.get("items", [])
+        except HttpError as e:
+            if e.resp.status in [403, 500, 503]:
+                time.sleep(5)
+                return self.get_video_details(video_id)
+            else:
+                raise e

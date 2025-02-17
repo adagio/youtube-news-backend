@@ -18,14 +18,14 @@ def fetch_latest_videos():
                 video_id = video['id']['videoId']
                 # Check if video already exists
                 exists = db.query(Video).filter(Video.video_id == video_id).first()
-                if not exists:
+                if not exists:                    
                     new_video = Video(
                         title=video['snippet']['title'],
                         description=video['snippet']['description'],
                         video_id=video_id,
                         url=f"https://www.youtube.com/watch?v={video_id}",
                         upload_date=datetime.fromisoformat(video['snippet']['publishedAt'].replace('Z', '+00:00')),
-                        channel_id=channel.id
+                        channel_id=channel.id,
                     )
                     db.add(new_video)
             except KeyError:

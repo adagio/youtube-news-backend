@@ -16,13 +16,18 @@ def preload_channels():
         {"name": "Marc Vidal", "channel_handle": "@marc_vidal"},
         {"name": "Alex Fidalgo", "channel_handle": "@Loquetudigas"},
         {"name": "Cascarón de Nuez", "channel_handle": "@jfcalero"},
+        {"name": "JF Calero Manual", "channel_handle": "@jfcaleroMANUAL"},
         {"name": "Gustavo Entrala", "channel_handle": "@@gustavo-entrala"},
         {"name": "Noticias Ilustradas", "channel_handle": "@NOTICIASILUSTRADAS"},
         {"name": "Dudas eternas", "channel_handle": "@DudasEternas"},
         {"name": "midulive", "channel_handle": "@midulive"},
         {"name": "midudev", "channel_handle": "@midudev"},
         {"name": "MoureDev TV", "channel_handle": "@mouredevtv"},
-        {"name": "MoureDev", "channel_handle": "@mouredev"}
+        {"name": "MoureDev", "channel_handle": "@mouredev"},
+        {"name": "Dot CSV", "channel_handle": "@dotcsv"},
+        {"name": "Dot CSV Lab", "channel_handle": "@DotCSVLab"},
+        {"name": "Fazt", "channel_handle": "@FaztTech"},
+        {"name": "Plazti", "channel_handle": "@Platzi"}
     ]
     for channel in channels:
         channel_id = youtube_client.get_channel_id_from_handle(channel["channel_handle"])
